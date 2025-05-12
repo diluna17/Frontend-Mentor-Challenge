@@ -2,7 +2,7 @@
     --clr-PrimaryRed-500: hsl(0, 36%, 70%);
     --clr-SecondaryRed-400: hsl(0, 93%, 68%);
 
-    --clr-NeutralRed-800: hsl(0, ^%, 24%);
+    --clr-NeutralRed-800: hsl(0, 6%, 24%);
     
     --clr-Gradients1-200: hsl(0, 0%, 100%), to hsl(0, 100, 98%);
     --clr-Gradients2-450: hsl(0, 80%, 86%), to hsl(0, 74%, 74%);
@@ -71,10 +71,25 @@
     color: var(--clr-NeutralRed-800);
     background-color: var(--clr-SecondaryRed-400);
 
-    .product {
+    .button {
+        cursor: pointer;
+        padding: 0.5 rem 1.5 rem;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5 rem;
+        border: 0;
+        background-color: var(--clr-Gradients1-200);
+        color: var(--clr-Gradients2-450);
+        font-weight: var(--fw-regular);
+    }
+
+    
+
+    .product{
         --content-padding: 1.5 rem;
         --content-spacing: 1 rem;
-        background-color: (var(--clr-Gradients1-200clr-Gradients1-200));
+            
         border-radius: (0.5 rem);
         overflow: hidden;
     }
@@ -88,6 +103,6 @@
     .product_title{
         font-size: 2 rem;
         font-family: var(--ff-base);
-        color: var(--clr-PrimaryRed-500);
+        color: var(--clr-NeutralRed-800);
     }
   }
