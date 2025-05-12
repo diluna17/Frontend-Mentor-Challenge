@@ -78,7 +78,7 @@
         border-radius: (0.5 rem);
         overflow: hidden;
     }
-    product_content{
+    .product_content{
         padding: var(--content-padding);
         gap: var(--content-spacing);
         display: grid;
