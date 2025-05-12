@@ -74,7 +74,7 @@
     .product {
         --content-padding: 1.5 rem;
         --content-spacing: 1 rem;
-        background-color: (var(--clr-NeutralRed-800));
+        background-color: (var(--clr-Gradients1-200clr-Gradients1-200));
         border-radius: (0.5 rem);
         overflow: hidden;
     }
