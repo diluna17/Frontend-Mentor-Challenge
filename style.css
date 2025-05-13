@@ -104,6 +104,7 @@
         padding: var(--content-padding);
         gap: var(--content-spacing);
         display: grid;
+        color: var(--clr-PrimaryRed-500);
     
     }
     
