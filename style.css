@@ -96,12 +96,21 @@
         --content-padding: 1.5 rem;
         --content-spacing: 1 rem;
 
+        display: grid;
         background-color: var(--clr-Gradients1-200);
         border-radius: (0.5 rem);
         overflow: hidden;
         color: var(--clr-PrimaryRed-500);
+        max-width: 600px;
         
     }
+
+    @media(min-width: 600px) {
+        .product {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
     .product_content{
         padding: var(--content-padding);
         gap: var(--content-spacing);
