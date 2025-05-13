@@ -98,6 +98,7 @@
         background-color: var(--clr-Gradients1-200);
         border-radius: (0.5 rem);
         overflow: hidden;
+        color: var(--clr-PrimaryRed-500);
     }
     .product_content{
         padding: var(--content-padding);
