@@ -1,127 +1,102 @@
-:root{
-    --clr-PrimaryRed-500: hsl(0, 36%, 70%);
-    --clr-SecondaryRed-400: hsl(0, 93%, 68%);
+:root {
+  --clr-PrimaryRed-500: hsl(0, 36%, 70%);
+  --clr-SecondaryRed-400: hsl(0, 93%, 68%);
+  --clr-NeutralRed-800: hsl(0, 6%, 24%);
+  --clr-Gradients1-200: hsl(0, 0%, 100%);
+  --clr-Gradients2-450: linear-gradient(to right, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
 
-    --clr-NeutralRed-800: hsl(0, 6%, 24%);
-    
-    --clr-Gradients1-200: hsl(0, 0%, 100%), to hsl(0, 100, 98%);
-    --clr-Gradients2-450: hsl(0, 80%, 86%), to hsl(0, 74%, 74%);
-
-    --fw-regular: 300;
-    --fw-semibold: 400;
-    --fw-bold: 600;
-
-    --ff-base: "Josefin Sans", sans-serif;
-    
-  
+  --fw-regular: 300;
+  --fw-bold: 600;
+  --ff-base: "Josefin Sans", sans-serif;
 }
-/* 1. Use a more-intuitive box-sizing model */
-*, *::before, *::after {
-    box-sizing: border-box;
-  }
-  /* 2. Remove default margin */
-  * {
-    margin: 0;
-  }
-  /* 3. Enable keyword animations */
-  @media (prefers-reduced-motion: no-preference) {
-    html {
-      interpolate-size: allow-keywords;
-    }
-  }
-  body {
-    /* 4. Add accessible line-height */
-    line-height: 1.5;
-    /* 5. Improve text rendering */
-    -webkit-font-smoothing: antialiased;
-  }
-  /* 6. Improve media defaults */
-  img, picture, video, canvas, svg {
-    display: block;
-    max-width: 100%;
-  }
-  /* 7. Inherit fonts for form controls */
-  input, button, textarea, select {
-    font: inherit;
-  }
-  /* 8. Avoid text overflows */
-  p, h1, h2, h3, h4, h5, h6 {
-    overflow-wrap: break-word;
-  }
-  /* 9. Improve line wrapping */
-  p {
-    text-wrap: pretty;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    text-wrap: balance;
-  }
-  /*
-    10. Create a root stacking context
-  */
-  #root, #__next {
-    isolation: isolate;
-  }
 
-  /*General Styling */
-  
-  body {
-    font-family: var(--ff-base);
-    font-weight: var(--fw-regular);
-    font-size: 16px;
-    color: var(--clr-NeutralRed-800);
-    background-color: var(--clr-Gradients1-200);
+/* Reset and base styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    .button {
-        cursor: pointer;
-        padding: 0.5 rem 1.5 rem;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        gap: 0.5 rem;
-        border: 0;
-        background-color: var(--clr-Gradients1-200);
-        color: var(--clr-Gradients2-450);
-        font-weight: var(--fw-regular);
-    }
+body {
+  font-family: var(--ff-base);
+  font-weight: var(--fw-regular);
+  color: var(--clr-NeutralRed-800);
+  background: var(--clr-Gradients2-450);
+  line-height: 1.5;
+}
 
-    .button[data-icon="icon-arrow"]::after {
-        content: "";
-        width: 15px;
-        height: 16px;
-        background: var(--clr-Gradients2-450);
-        background-image: url("icon-arrow.svg");
-    }
+/* Layout */
+.product {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 900px;
+  margin: 2rem auto;
+  background: var(--clr-Gradients1-200);
+}
 
-    .product{
-        --content-padding: 1.5 rem;
-        --content-spacing: 1 rem;
+.product_img img {
+  width: 100%;
+}
 
-        display: grid;
-        background-color: var(--clr-Gradients1-200);
-        border-radius: (0.5 rem);
-        overflow: hidden;
-        color: var(--clr-PrimaryRed-500);
-        max-width: 600px;
-        
-    }
-
-    @media(min-width: 600px) {
-        .product {
-            grid-template-columns: 1fr 1fr;
-        }
-    }
-
-    .product_content{
-        padding: var(--content-padding);
-        gap: var(--content-spacing);
-        display: grid;
-        color: var(--clr-PrimaryRed-500);
-    
-    }
-    
-    .product_title{
-        font-size: 2 rem;
-        font-family: var(--ff-base);
-        color: var(--clr-NeutralRed-800);
-    }
+@media (min-width: 600px) {
+  .product {
+    grid-template-columns: 1fr 1fr;
   }
+}
+
+.product_content {
+  padding: 2rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.subtitle {
+  letter-spacing: 0.3em;
+  color: var(--clr-PrimaryRed-500);
+  font-weight: var(--fw-bold);
+}
+
+.product_title {
+  font-size: 2rem;
+  font-weight: var(--fw-bold);
+  color: var(--clr-NeutralRed-800);
+}
+
+.form {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--clr-PrimaryRed-500);
+  border-radius: 25px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.input.error {
+  border-color: var(--clr-SecondaryRed-400);
+}
+
+.button {
+  background: var(--clr-Gradients2-450);
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 25px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-message {
+  color: var(--clr-SecondaryRed-400);
+  font-size: 0.875rem;
+  padding-top: 0.5rem;
+}
