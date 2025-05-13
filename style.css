@@ -84,7 +84,7 @@
         font-weight: var(--fw-regular);
     }
 
-    .button[data-icon="icon arrow"]::after {
+    .button[data-icon="icon-arrow"]::after {
         content: "";
         width: 15px;
         height: 16px;
