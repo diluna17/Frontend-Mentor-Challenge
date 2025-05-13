@@ -1,31 +1,104 @@
-<main>
-  <article class="product">
-    <picture class="product_img">
-      <source srcset="hero-desktop.jpg" media="(min-width: 600px)">
-      <img src="hero-mobile.jpg" alt="model wearing fashion">
-    </picture>
-    
-    <div class="product_content">
-      <h2 class="subtitle">WE'RE</h2>
-      <h1 class="product_title">COMING SOON</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
-      <p>Hello fellow shoppers! We're currently building our new fashion store. 
-      Add your email below to stay up-to-date with announcements and our launch deals.</p> 
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Base Apparel coming soon page</title>
+  <!--Google's Font-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 
-      <form class="form" novalidate>
-        <input type="email" placeholder="Email Address" class="input" id="email">
-        <button type="submit" class="button" aria-label="Submit email">
-          <img src="icon-arrow.svg" alt="">
-        </button>
-        <span class="error-message" aria-live="polite"></span>
-      </form>
-    </div>
-  </article>
+  <!--Mine-->
+  <link rel="stylesheet" href="style.css">
+ 
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <main>
+    <article class="product">
+      <picture class="product_img">
+        <source srcset="hero-desktop.jpg" media="(min-width: 600px)">
+        <img src="hero-mobile.jpg" alt="model wearing fashion">
+      </picture>
+      <div class="product_content">
+        <h2 class="subtitle">WE'RE </h2> <h1 class="product_title"> COMING SOON </h1>
 
+       <p>Hello fellow shoppers! We're currently building our new fashion store. 
+        Add your email below to stay up-to-date with announcements and our launch deals.</p> 
+
+        <form class="form" novalidate>
+          <input type="email" placeholder="Email Address" class="input" id="email">
+          <button type="submit" class="button" aria-label="Submit email">
+            <img src="icon-arrow.svg" alt="">
+          </button>
+          <span class="error-message" aria-live="polite"></span>
+        </form>
+      </div>
+    </article>
+  
+  
+  
   <footer>
     <p class="attribution">
       Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
       Coded by <a href="#">Diana</a>.
     </p>
   </footer>
-</main>
+      </article>
+
+  </main>
+
+  <script>
+    const form = document.querySelector('.form');
+    const emailInput = document.getElementById('email');
+    const errorMsg = document.querySelector('.error-message');
+  
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const email = emailInput.value.trim();
+      const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  
+      if (!isValid) {
+        emailInput.classList.add('error');
+        errorMsg.textContent = "Please provide a valid email";
+      } else {
+        emailInput.classList.remove('error');
+        errorMsg.textContent = "";
+        alert("Thanks for subscribing!");
+        emailInput.value = "";
+      }
+    });
+  </script>
+  <!-- Include this at the bottom of your HTML file before the closing </body> tag -->
+<script>
+  const form = document.querySelector('.form');
+  const emailInput = document.getElementById('email');
+  const errorMsg = document.querySelector('.error-message');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault(); // Prevent form from refreshing the page
+
+    const email = emailInput.value.trim();
+    const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+    if (!isValid) {
+      emailInput.classList.add('error');
+      errorMsg.textContent = "Please provide a valid email";
+    } else {
+      emailInput.classList.remove('error');
+      errorMsg.textContent = "";
+      alert("Thanks for subscribing!");
+      emailInput.value = ""; // Clear the field
+    }
+  });
+</script>
+
+</body>
+</html>
