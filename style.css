@@ -84,11 +84,12 @@
         font-weight: var(--fw-regular);
     }
 
-    .button[data-icon="icon arrow"]::after{
+    .button[data-icon="icon arrow"]::after {
         content: "";
         width: 15px;
         height: 16px;
-        background-image: url(icon-arrow.svg);
+        background: var(--clr-Gradients2-450);
+        background-image: url("icon-arrow.svg");
     }
 
     .product{
@@ -99,6 +100,7 @@
         border-radius: (0.5 rem);
         overflow: hidden;
         color: var(--clr-PrimaryRed-500);
+        
     }
     .product_content{
         padding: var(--content-padding);
