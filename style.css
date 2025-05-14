@@ -81,6 +81,10 @@
     line-height: 1.2;
     text-transform: uppercase;
   }
+
+  .product_title .line {
+    display: block;
+  }
   
   .form {
     position: relative;
