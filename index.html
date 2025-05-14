@@ -1,86 +1,162 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+:root{
+    --clr-PrimaryRed-500: hsl(0, 36%, 70%);
+    --clr-SecondaryRed-400: hsl(0, 93%, 68%);
 
-  <link rel="icon" type="image/png" sizes="32x32" href=".favicon-32x32.png">
+    --clr-NeutralRed-800: hsl(0, 6%, 24%);
+    
+    --clr-Gradients1-200: linear-gradient(to right, hsl(0, 0%, 100%), hsl(0, 100, 98%));
+    --clr-Gradients2-450: linear-gradient(to right, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+
+    --fw-regular: 300;
+    --fw-semibold: 400;
+    --fw-bold: 600;
+
+    --ff-base: "Josefin Sans", sans-serif;
+    
   
-  <title>Frontend Mentor | Base Apparel coming soon page</title>
-  <!--Google's Font-->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-
-  <!--Mine-->
-  <link rel="stylesheet" href="style.css">
+}
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
  
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-  </style>
-</head>
-<body>
-  <main>
-    <article class="product">
-      <picture class="product_img">
-        <source srcset="hero-desktop.jpg" media="(min-width: 768px)">
-        <img src="hero-mobile.jpg" alt="model wearing fashion">
-      </picture>
-      <div class="product_content">
-        <img src="logo.svg" alt="Base Apparel logo" class="logo">
-        <h1 class="product_title">
-          <span class="line">COMING</span>
-          <span class="line">SOON</span>
-        </h1>
 
-       <p>Hello fellow shoppers! We're currently building our new fashion store. 
-        Add your email below to stay up-to-date with announcements and our launch deals.</p> 
-
-        <form class="form" novalidate>
-          <div class="input-wrapper"></div>
-          <input type="email" placeholder="Email Address" class="input" id="email">
-          <button type="submit" class="button" aria-label="Submit email">
-            <img src="icon-arrow.svg" alt="">
-          </button>
-          <span class="error-message" aria-live="polite"></span>
-        </form>
-      </div>
-    </article>
+  /*General Styling */
   
+  body {
+    font-family: var(--ff-base);
+    font-weight: var(--fw-regular);
+    color: var(--clr-NeutralRed-800);
+    background: var(--clr-Gradients1-200);
+    line-height: 1.5;
+  }
   
+  /* Layout */
+  .product {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 900px;
+    margin: 2rem auto;
+    background: var(--clr-Gradients1-200);
+  }
   
-  <footer>
-    <p class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-      Coded by <a href="#">Diana</a>.
-    </p>
-  </footer>
-      </article>
-
-  </main>
-
-  <script>
-    const form = document.querySelector('.form');
-    const emailInput = document.getElementById('email');
-    const errorMsg = document.querySelector('.error-message');
+  .product_img img {
+    width: 100%;
+  }
   
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const email = emailInput.value.trim();
-      const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  @media (min-width: 768px) {
+    .product {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        direction: 1tr;;
+    }
   
-      if (!isValid) {
-        emailInput.classList.add('error');
-        errorMsg.textContent = "Please provide a valid email";
-      } else {
-        emailInput.classList.remove('error');
-        errorMsg.textContent = "";
-        alert("Thanks for subscribing!");
-        emailInput.value = "";
-      }
-    });
-  </script>
 
+  .product_img {
+    order: 2;
+  }
+  
+  .product_content {
+    font-weight: var(--fw-semibold);
+    color: var(--clr-PrimaryRed-500);
+    max-width: 32ch;
+    line-height: 1.6;
+    margin-top: 1rem;
+  }
+}
 
-</body>
-</html>
+  .subtitle {
+    letter-spacing: 0.3em;
+    color: var(--clr-PrimaryRed-500);
+    font-weight: var(--fw-regular);
+    text-transform: uppercase;  
+  }
+  
+  .product_title {
+    font-size: 2.5rem;
+    font-weight: var(--fw-bold);
+    color: var(--clr-NeutralRed-800);
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .product_title .line {
+    display: block;
+  }
+  
+  .form {
+    position: relative;
+    display: flex;
+    max-width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .input-wrapper {
+    display: flex;
+    width: 100%;
+    position: relative;
+  }
+  
+  .input {
+    flex: 1;
+    padding: 1rem 4rem 1rem 1.5rem;
+    border: 1px solid var(--clr-PrimaryRed-500);
+    border-radius: 50px;
+    font-size: 1rem;
+    outline: none;
+  }
+  
+  .input.error {
+    border: 2px solid var(--clr-SecondaryRed-400);
+    background-image: url('icon-error.svg');
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 20px;
+  }
+  .input::placeholder {
+    color: var(--clr-PrimaryRed-500);
+  }
+  
+  .button {
+    position: absolute;
+    background: var(--clr-Gradients2-450);
+    top: 0;
+    right: 0;
+    height: 100%;
+    border: none;
+    padding: 0 1.5rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .button:hover {
+    opacity: 0.8;
+  }
+
+  .error-message {
+    color: var(--clr-SecondaryRed-400);
+    font-size: 0.875rem;
+    padding-top: 1rem;
+  }
+
+  .logo {
+    width: 120px;
+    height: auto;
+    margin-bottom: 2rem;
+  }
+  
+  @media (min-width: 768px) {
+    .logo {
+      width: 150px;
+      margin-bottom: 3rem;
+    }
+  }
+  
