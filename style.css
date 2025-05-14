@@ -1,102 +1,128 @@
-:root {
-  --clr-PrimaryRed-500: hsl(0, 36%, 70%);
-  --clr-SecondaryRed-400: hsl(0, 93%, 68%);
-  --clr-NeutralRed-800: hsl(0, 6%, 24%);
-  --clr-Gradients1-200: hsl(0, 0%, 100%);
-  --clr-Gradients2-450: linear-gradient(to right, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+:root{
+    --clr-PrimaryRed-500: hsl(0, 36%, 70%);
+    --clr-SecondaryRed-400: hsl(0, 93%, 68%);
 
-  --fw-regular: 300;
-  --fw-bold: 600;
-  --ff-base: "Josefin Sans", sans-serif;
+    --clr-NeutralRed-800: hsl(0, 6%, 24%);
+    
+    --clr-Gradients1-200: linear-gradient(to right, hsl(0, 0%, 100%), to hsl(0, 100, 98%));
+    --clr-Gradients2-450: linear-gradient(to right, hsl(0, 80%, 86%), to hsl(0, 74%, 74%));
+
+    --fw-regular: 300;
+    --fw-semibold: 400;
+    --fw-bold: 600;
+
+    --ff-base: "Josefin Sans", sans-serif;
+    
+  
 }
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+ 
 
-/* Reset and base styles */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: var(--ff-base);
-  font-weight: var(--fw-regular);
-  color: var(--clr-NeutralRed-800);
-  background: var(--clr-Gradients2-450);
-  line-height: 1.5;
-}
-
-/* Layout */
-.product {
-  display: grid;
-  grid-template-columns: 1fr;
-  max-width: 900px;
-  margin: 2rem auto;
-  background: var(--clr-Gradients1-200);
-}
-
-.product_img img {
-  width: 100%;
-}
-
-@media (min-width: 600px) {
+  /*General Styling */
+  
+  body {
+    font-family: var(--ff-base);
+    font-weight: var(--fw-regular);
+    color: var(--clr-NeutralRed-800);
+    background: var(--clr-Gradients2-450);
+    line-height: 1.5;
+  }
+  
+  /* Layout */
   .product {
-    grid-template-columns: 1fr 1fr;
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 900px;
+    margin: 2rem auto;
+    background: var(--clr-Gradients1-200);
+  }
+  
+  .product_img img {
+    width: 100%;
+  }
+  
+  @media (min-width: 768px) {
+    .product {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        direction: 1tr;;
+    }
+  
+
+  .product_img {
+    order: 2;
+  }
+  
+  .product_content {
+    order: 1;
+    padding: 4rem;
   }
 }
 
-.product_content {
-  padding: 2rem;
-  display: grid;
-  gap: 1rem;
-}
+  .subtitle {
+    letter-spacing: 0.3em;
+    color: var(--clr-PrimaryRed-500);
+    font-weight: var(--fw-bold);
+  }
+  
+  .product_title {
+    font-size: 2rem;
+    font-weight: var(--fw-bold);
+    color: var(--clr-NeutralRed-800);
+  }
+  
+  .form {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--clr-PrimaryRed-500);
+    border-radius: 25px;
+    font-size: 1rem;
+    outline: none;
+  }
+  
+  .input.error {
+    border-color: var(--clr-SecondaryRed-400);
+  }
+  
+  .button {
+    background: var(--clr-Gradients2-450);
+    border: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .error-message {
+    color: var(--clr-SecondaryRed-400);
+    font-size: 0.875rem;
+    padding-top: 0.5rem;
+  }
 
-.subtitle {
-  letter-spacing: 0.3em;
-  color: var(--clr-PrimaryRed-500);
-  font-weight: var(--fw-bold);
-}
-
-.product_title {
-  font-size: 2rem;
-  font-weight: var(--fw-bold);
-  color: var(--clr-NeutralRed-800);
-}
-
-.form {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.input {
-  flex: 1;
-  padding: 0.75rem 1rem;
-  border: 1px solid var(--clr-PrimaryRed-500);
-  border-radius: 25px;
-  font-size: 1rem;
-  outline: none;
-}
-
-.input.error {
-  border-color: var(--clr-SecondaryRed-400);
-}
-
-.button {
-  background: var(--clr-Gradients2-450);
-  border: none;
-  padding: 0.75rem 1.25rem;
-  border-radius: 25px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.error-message {
-  color: var(--clr-SecondaryRed-400);
-  font-size: 0.875rem;
-  padding-top: 0.5rem;
-}
+  .logo {
+    width: 120px;
+    height: auto;
+    margin-bottom: 2rem;
+  }
+  
+  @media (min-width: 768px) {
+    .logo {
+      width: 150px;
+      margin-bottom: 3rem;
+    }
+  }
+  
