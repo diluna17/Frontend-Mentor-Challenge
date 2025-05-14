@@ -99,6 +99,7 @@
   }
   
   .button {
+    position: absolute;
     background: var(--clr-Gradients2-450);
     top: 0;
     right: 0;
@@ -111,8 +112,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0px 10px 20px rgba(198, 110, 110, 0.3);
-    transition: background 0.3s ease;
   }
   
   .button:hover {
