@@ -94,6 +94,9 @@
   .input.error {
     border-color: var(--clr-SecondaryRed-400);
   }
+  .input::placeholder {
+    color: var(--clr-PrimaryRed-500);
+  }
   
   .button {
     background: var(--clr-Gradients2-450);
